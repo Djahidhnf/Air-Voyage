@@ -1,3 +1,24 @@
+/*Animation*/
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+header img:hover {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+
+
 /*universal styling*/
 body {
     background-color: #B9D2E6;
@@ -5,12 +26,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Rubik", sans-serif;
-    display: grid;
-    grid-template-rows: 1fr 1fr 0.2fr;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "header header"
-    "main main"
-    "footer footer";
     row-gap: 50px;
 }
 
@@ -29,23 +44,152 @@ a {
     margin-left: 8px;
 }
 
+li {
+    list-style: none;
+}
+
 .hidden{
     display: none;
 }
 
+.not-visible {
+    visibility: hidden;
+}
+
 /*header*/
-header {
-    height: 100vh;
-    grid-area: header;
+.header-page {
+    max-height: fit-content;
+    color: #0a101f;
+    margin-bottom: 50px;
 }
 
 
 
+nav a {
+    color: #0a101f;
+    font-weight: 600;
+}
+
+nav li {
+    list-style: none;
+}
 
 
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 20px;
+
+}
+
+nav ul button,
+nav ul li {
+    margin-top: 40px;
+}
+
+nav ul button {
+    background-color: #0a101f;
+    border: 0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-page ul button:hover,
+.header-page div.buttons button:hover {
+    box-shadow: 0px 0px 10px #00ABCC;
+}
+
+nav ul button svg {
+    margin-left: 9%;
+}
+
+.header-page.container h1 {
+    font-weight: bolder;
+    font-size: 10rem;
+}
+
+header {
+    display: flex;
+    align-items: flex-end;
+}
+
+header > div {
+    align-items: flex-end;
+    margin-bottom: 8%;
+    margin-left: 2%;
+}
+
+.header-page .buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header-page .buttons button{
+    min-width: 150px;
+    max-width: 250px;
+    height: 45px;
+    background-color: #0A101F;
+    border: 0;
+    border-radius: 30px;
+    color: #F8FAFC;
+    font-weight: bold;
+    margin: 5% 10px 10px;
+}
+
+@media (max-width:767px) {
+
+    .header-page.container h1 {
+        font-size: 7rem;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+    .header-page.container h1 {
+        font-size: 4rem;
+    }
+
+    .header-page.container {
+        margin-bottom: 300px;
+    }
+
+    header {
+        margin: 100px 0;
+    }
+}
+
+@media (min-width: 200px) and (max-width: 375px) {
+    .header-page.container h1 {
+        font-size: 2rem;
+    }
+}
+
+.offcanvas-body * {
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: transform 0.3s linear;
+}
+
+.offcanvas-body h5:hover {
+    transform: translateX(3px);
+}
+
+.offcanvas-body h6 {
+    margin-left: 30px;
+}
+
+.offcanvas-body h6:hover {
+    background-color: #0a101f05;
+}
 /*main*/
 
-main {
+main{
     width: 100%;
     grid-area: main;
 }
@@ -53,6 +197,17 @@ main > .buttons.container, main  .search {
     display: flex;
     justify-content: center;
     column-gap: 10px;
+}
+
+@media (max-width: 991px) {
+    main {
+        text-align: center;
+    }
+
+    main h2 {
+        margin-top: 20px;
+        font-size:xx-large;
+    }
 }
 
 .buttons.container {
@@ -106,9 +261,18 @@ main > .buttons.container, main  .search {
 .trending h2 {
     z-index: 3;
     position: absolute;
-    color: #0A101F;
+    color: #F8FAFC;
     font-size: x-large;
-    text-shadow: 0 0 20px #0A101F;
+    text-shadow: 0px 0px 10px #0A101F;
+    margin-left: 5px;
+}
+
+.explore h2 {
+    z-index: 3;
+    position: absolute;
+    text-shadow: 5px 5px 15px #0A101F;
+    margin-left: 5px;
+    font-size:medium;
 }
 
 
@@ -122,26 +286,28 @@ main > .buttons.container, main  .search {
     justify-content: center;
 }
 
-.row img {
-    display: none;
-}
 
-.row div {
-    background-color: #F8FAFC;
-    min-height: 150px;
-    max-height: 280px;
+
+main .row div {
+    
+    min-height: 200px;
+    max-height: 400px;
     border-radius: 10px;
     cursor: pointer;
-    overflow: hidden;
-    margin: 15px 10px;
+    margin: 5px;
+  
 }
 
-.row div:hover {
-    outline: 2px solid #0A101F;
+
+
+main .row div img:hover {
+    outline: 2px solid #0a101f;
+    transform: scale(1.01);
 }
 
 /*flights container*/
-.row.flight-search {
+.search-bar-flights,
+.search-bar-stays {
     grid-area: search;
     margin: 0 auto;
     max-width: 90%;
@@ -149,43 +315,35 @@ main > .buttons.container, main  .search {
     background-color: #0a101f3b;
 }
 
-.row.flight-search button {
+.search-bar-flights button,
+.search-bar-stays button {
     border: 0;
     border-radius: 5px;
     height: 45px;
     margin: 5px 7px;
 }
 
-.flight-search .btn-from,
-.flight-search .btn-to:hover {
-    cursor: text;
-}
-
-.btn-search {
-    max-width: 15%;
-}
-
-.row.flight-search .btn-search {
+.search-bar-flights .btn-search,
+.search-bar-stays .btn-search {
     background-color:royalblue;
     max-width: 45px;
 }
 
-.flight-search.row input {
-    position: absolute;
-    max-width: 20rem;
-    height: 50px;
+.search-bar-flights input,
+.search-bar-stays input {
+    height: 45px;
     border-radius: 5px;
     border: 0;
-    margin-top: 2px;
+    margin-top: 5px;
+    margin-inline: 4px;
+    outline: 0;
 }
 
-.flight-search.row input[name="departure"] {
-    left: 13%;
+.still-searching-stays,
+.error-stays {
+    margin: 10px 0 10px 7%;
 }
 
-.flight-search.row input[name="destination"] {
-    left: 28.5%;
-}
 
 .flights-box {
     display: grid;
@@ -207,7 +365,7 @@ li {
     margin-left: 8px;
 }
 
-li:hover {
+main li:hover {
 background-color: #0a101f2f;
 cursor: pointer;
 }
@@ -316,4 +474,8 @@ footer a.item, footer p.item {
 }
 
 
-
+main img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transfrom 0.3s ease-in-out;
+}
