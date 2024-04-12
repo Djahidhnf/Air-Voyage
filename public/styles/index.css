@@ -101,7 +101,7 @@ nav ul button {
 }
 
 .header-page ul button:hover,
-.header-page div.buttons button:hover {
+.header-page .buttons a:hover {
     box-shadow: 0px 0px 10px #00ABCC;
 }
 
@@ -130,16 +130,26 @@ header > div {
     justify-content: flex-end;
 }
 
-.header-page .buttons button{
+
+.header-page .buttons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-width: 150px;
     max-width: 250px;
     height: 45px;
     background-color: #0A101F;
     border: 0;
     border-radius: 30px;
+    margin: 5% 30px 10px;
     color: #F8FAFC;
     font-weight: bold;
-    margin: 5% 10px 10px;
+}
+
+.header-page .buttons a[href="./login"] {
+    border: 3px solid #0A101f;
+    background-color: transparent;
+    color: #0A101f;
 }
 
 @media (max-width:767px) {
@@ -191,7 +201,6 @@ header > div {
 
 main{
     width: 100%;
-    grid-area: main;
 }
 main > .buttons.container, main  .search {
     display: flex;
@@ -295,16 +304,21 @@ main .row div {
     border-radius: 10px;
     cursor: pointer;
     margin: 5px;
-  
+    
 }
 
 
 
 main .row div img:hover {
-    outline: 2px solid #0a101f;
+    
     transform: scale(1.01);
 }
 
+main img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transfrom 0.3s ease-in-out;
+}
 /*flights container*/
 .search-bar-flights,
 .search-bar-stays {
@@ -411,12 +425,150 @@ label[for="range"].max {
 
 
 /*account page*/
+#account-form {
+    margin-bottom: 200px;
+}
+
+#account-form > .return {
+    background-color: #0A101f;
+    height: 100px;
+    margin-bottom: 20px;
+    border-bottom-right-radius: 10rem;
+    display: flex;
+    align-items: center;
+    transition: transfrom 1s;
+}
+
+#account-form > div.return > span {
+    margin-left: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#account-form > div.return > span:hover {
+    transform: translateX(-3px);
+}
+
+.sign-up-h1,
+.log-in-h1 {
+    color: #0a101f77;
+    margin-left: 20px;
+    font-weight: bolder;
+    font-size: 15rem;
+    position: absolute;
+    z-index: -1;
+}
+
+@media (max-width: 1065px) {
+    .sign-up-h1,
+    .log-in-h1 {
+        font-size: 13rem;
+    }
+
+    footer {
+        padding-bottom: 10%;
+    }
+}
+
+@media (max-width: 745px) {
+    .sign-up-h1,
+    .log-in-h1 {
+        font-size: 11rem;
+    }
+
+    div.item.company {
+        grid-column-start: 2;
+    }
+}
+
+@media (max-width: 635px) {
+    .sign-up-h1,
+    .log-in-h1 {
+        font-size: 9rem;
+    }
+}
+
+@media (max-width: 530px) {
+    .sign-up-h1,
+    .log-in-h1 {
+        display: none;
+    }
+
+    footer {
+        padding-bottom: 20%;
+    }
+}
 
 
+#log-in,
+#sign-up {
+    outline: 2px solid #0a101f;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 20px;
+    margin-block: 10%;
+    margin-inline: auto;
+    background-color: #0a101fa9;
+    
+}
+
+#log-in label,
+#sign-up label{
+    margin-top: 10px;
+}
+
+#log-in h1,
+#sign-up h1 {
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: .15rem;
+}
+
+#log-in input,
+#sign-up input {
+    width: 100%;
+    height: 30px;
+    font-size: medium;
+    margin-bottom: 10px;
+}
+
+#log-in button,
+#sign-up button {
+    width: 80%;
+    height: 30px;
+    margin: 5px auto;
+    background-color: #0070cc;
+    color: #F8FAFC;
+    font-weight: bold;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#log-in input[type="checkbox"] {
+    width: auto;
+    height: auto;
+}
 
 
+#log-in button:hover,
+#sign-up button:hover {
+    background-color: #171e30e3;
+}
 
+#log-in a,
+#sign-up a {
+    text-decoration: underline;
+}
 
+#log-in a:hover,
+#sign-up a:hover {
+    color: #0070cc;
+}
 
 
 
@@ -424,7 +576,7 @@ label[for="range"].max {
 /*footer*/
 footer {
     background-color: #0A101F;
-    grid-area: footer;
+    width: 100%;
 }
 
 footer a {
@@ -473,9 +625,3 @@ footer a.item, footer p.item {
     margin-bottom: 20px;
 }
 
-
-main img {
-    width: 100%;
-    border-radius: 10px;
-    transition: transfrom 0.3s ease-in-out;
-}

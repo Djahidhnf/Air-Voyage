@@ -1,6 +1,4 @@
-$(".btn.item").on('click', function () {
-    $(this).toggleClass("active");
-});
+
 
 //when user searches for flight or stays show the spinner
 $(".search-bar-stays").children("button").on("click", function () {
@@ -11,7 +9,7 @@ $(".search-bar-stays").children("button").on("click", function () {
     setTimeout(() => {
         $(".still-searching-stays").addClass("hidden");
         $(".error-stays").removeClass("hidden");
-    }, 8000);
+    }, 5000);
 });
 
 $(".search-bar-flights").children("button").on("click", function () {
@@ -26,3 +24,18 @@ $(".search-bar-flights").children("button").on("click", function () {
 })
 
 
+$(".btn.item").on("click", function () {
+    let containerToShow = this.classList[2]; 
+    if (containerToShow === "flights" || containerToShow === "stays") {
+        $("#"+containerToShow).removeClass("hidden");
+        $(".btn.item" + "." + containerToShow).addClass("active");
+    }
+
+    if (containerToShow === "flights") {
+        $("#stays").addClass("hidden");
+        $(".btn.item.stays").removeClass("active");
+    } else {
+        $("#flights").addClass("hidden");
+        $(".btn.item.flights").removeClass("active");
+    }
+})
