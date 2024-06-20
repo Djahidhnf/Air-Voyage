@@ -135,7 +135,7 @@ header > div {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 150px;
+    min-width: 120px;
     max-width: 250px;
     height: 45px;
     background-color: #0A101F;
@@ -156,6 +156,12 @@ header > div {
 
     .header-page.container h1 {
         font-size: 7rem;
+    }   
+}
+
+@media (max-width: 520px) {
+    .buttons.container button span {
+        display: none;
     }
 }
 
@@ -351,6 +357,17 @@ main img {
     margin-top: 5px;
     margin-inline: 4px;
     outline: 0;
+    color: gray;
+}
+
+.avflight {
+    background-color: #f8fafc91;
+    color: #030712;
+    font-weight: bold;
+    max-width: 100%;
+    border-radius: 15px;
+    margin: 10px 5px;
+    padding: 10px;
 }
 
 .still-searching-stays,
@@ -418,10 +435,14 @@ label[for="range"].max {
     margin-inline: 25px 2px;
 }
 
-
-
-
-
+.still-searching-flight {
+    background-color: #f8fafc6c;
+    border-radius: 20px;
+    padding-left: 20px;
+    height: 100px;
+    color: #030712;
+    margin: 5px;
+}
 
 
 /*account page*/
